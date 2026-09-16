@@ -30,4 +30,18 @@ const protect = async (req, res, next) => {
     }
 };
 
+// In bookingController.js — update getHandymanBookings
+const getHandymanBookings = async (req, res) => {
+    try {
+        const bookings = await Booking.find({ handymanId: req.user.id })
+            .populate("userId", "username email") // 👈 populate user details
+            .sort({ createdAt: -1 });
+
+        res.json(bookings);
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
 module.exports = { protect };

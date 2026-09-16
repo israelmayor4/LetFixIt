@@ -5,10 +5,12 @@ function Navbar({ activePage, onLogout }) {
     const { user } = useAuth();
 
     const links = [
-        { name: "Dashboard", path: "/dashboard" },
-        { name: "Service", path: "/service" },
-        { name: "Booking", path: "/booking" },
-        { name: "Profile", path: "/profile" },
+        { name: "Dashboard", path: "/dashboard", logo: "dashboard.svg" },
+        { name: "Service", path: "/service", logo: "services.svg" },
+        { name: "Booking", path: "/booking", logo: "bookings.svg" },
+        { name: "Wallet", path: "/wallet", logo: "wallet.svg" },
+        { name: "Conversations", path: "/conversation", logo: "Chat.svg" },
+        { name: "Profile", path: "/profile", logo: "profile.svg" },
     ];
 
     return (
@@ -22,6 +24,7 @@ function Navbar({ activePage, onLogout }) {
                         to={link.path}
                         className={activePage === link.name ? "active" : ""}
                     >
+                        <img src={`/images/${link.logo}`}  alt="" />
                         {link.name}
                     </Link>
                 ))}

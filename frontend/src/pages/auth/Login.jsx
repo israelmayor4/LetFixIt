@@ -42,7 +42,60 @@ function Login() {
     };
 
     return (
-        <div className="auth-container">
+
+        <div className="form-cont">
+            <form onSubmit={handleSubmit} id="userSignIn">
+                <h2 style={{ fontSize: "36px", fontWeight: "600" }}>Log In</h2>
+                <p style={{ marginBottom: "24px", marginTop: "16px" }}>
+                    Welcome back! Please enter your details.
+                </p>
+
+                <label style={{ display: "block" }}>Email</label>
+                <input
+                    type="email"
+                    id="e-mail"
+                    placeholder="Enter your email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                />
+                <br />
+
+                <label style={{ display: "block" }}>Password</label>
+                <input
+                    style={{ marginBottom: "24px" }}
+                    type="password"
+                    id="password"
+                    placeholder="Create a Password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    required
+                />
+                <br />
+
+                <button style={{ marginBottom: "16px" }} type="submit" disabled={loading}>
+                    {loading ? "Signing in..." : "Sign In"}
+                </button>
+
+                {/* Note: changed "class" to "className" and added closing "/" to img */}
+                {/* <button style={{ marginBottom: "32px" }} className="google-btn" type="button">
+          <img src="./IMAGES/google-icon.png" alt="" />
+          Sign in with Google
+      </button> */}
+
+                <p style={{ textAlign: "center", fontSize: "14px", fontWeight: "400" }}>
+                    Don't have an account? <Link style={{color: '#F59E0B', textDecoration: 'none'}} to="/register">Sign Up</Link>
+                </p>
+            </form>
+        </div>
+
+    );
+
+
+   {/*} return (
+         <div className="auth-container">
             <div className="auth-box">
                 <h1>LetFixIt</h1>
                 <h2>Welcome back</h2>
@@ -82,8 +135,9 @@ function Login() {
 
                 <p>Don't have an account? <Link to="/register">Register</Link></p>
             </div>
-        </div>
-    );
+        </div> 
+
+    )*/}
 }
 
 export default Login;

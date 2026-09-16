@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
+import Home from "./pages/Home";
 
 // User auth
 import Login from "./pages/auth/Login";
@@ -52,7 +53,7 @@ function App() {
                     } />
 
                     {/* Default */}
-                    <Route path="/" element={<Navigate to="/login" />} />
+                    <Route path="/" element={<Home />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

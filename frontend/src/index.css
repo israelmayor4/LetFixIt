@@ -5,7 +5,131 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
-.auth-container {
+
+
+.form-cont {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    padding: 50px;
+    color: white;
+    z-index: 1;
+}
+
+.form-cont::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: 
+            linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('../public/images/userSignInImg.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+
+        filter: blur(8px);
+        transform: scale(1.1); /* prevents blur edges from showing */
+
+        z-index: -1;
+    }
+
+
+/* This targets the pseudo-element only when it is inside the register page layout */
+.form-cont.register-page::before {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
+        url('../public/images/userRegisterImg.png'); /* 👈 Put your new registration image path here */
+        
+    /* Keeps all of your setup adjustments intact (auto sizing, containment, etc.) */
+    /* background-size: auto; 
+    background-repeat: no-repeat;
+    background-position: center 16%; */
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+.form-cont form {
+    width: 600px;
+    margin: 200px auto;
+    /* margin-left: 12%;
+    margin-top: 80px; */
+    /* border: 2px solid yellow; */
+}
+
+form .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 152px;
+}
+
+form p {
+    font-weight: 400;
+    font-size: 14px;
+    color: white;
+}
+
+form label {
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+    border: 2px solid #D0D5DD;
+    border-radius: 8px;
+    box-shadow: 0px 1px 2px 0px #1018280D;
+}
+
+
+
+form button {
+    display: block;
+    width: 100%;
+    background-color: #136F63;
+    border-radius: 8px;
+    padding: 10px 18px;
+    box-shadow: 0px 1px 2px 0px #1018280D;
+    border: 2px solid #136F63;
+    color: white;
+
+}
+
+form .google-btn {
+    background-color: #FFFFFF;
+    border: 2px solid #D0D5DD;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    gap: 12px;
+    color: black;
+}
+
+.google-btn img {
+    height: 24px;
+    width: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .auth-container {
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -60,7 +184,7 @@
 .input-group input:focus,
 .input-group select:focus {
     border-color: teal;
-}
+} */
 
 button[type="submit"] {
     width: 100%;
@@ -99,44 +223,52 @@ a {
 
 /* Dashboard */
 .dashboard {
-    display: flex;
+    display: grid;
+    grid-template-columns: 296px 1fr;
     min-height: 100vh;
 }
 
 .navbar {
-    width: 220px;
     background: white;
-    padding: 24px 16px;
+    padding: 32px 32px;
     display: flex;
     flex-direction: column;
     gap: 24px;
     border-right: 1px solid #e0e0e0;
-    position: fixed;
     height: 100vh;
+    position: sticky;
 }
 
 .logo {
-    color: teal;
-    font-size: 22px;
+    color: #082C28;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 40px;
 }
 
 .nav-links {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 24px;
+}
+
+.nav-links img {
+    margin-right: 16px;
 }
 
 .nav-links a {
-    padding: 10px 16px;
+    padding: 12px 20px;
+    display: flex;
     border-radius: 8px;
     text-decoration: none;
-    color: #555;
-    font-size: 14px;
+    color: #53545C;
+    font-size: 16px;
+    align-items: center;
 }
 
 .nav-links a.active {
-    background: #e8f4f4;
-    color: teal;
+    background: #136F63;
+    color: #FFFFFF;
     font-weight: bold;
 }
 
@@ -169,13 +301,265 @@ a {
     font-size: 13px;
 }
 
+
+
+
+
+.main-cont > .head {
+  display: grid;
+  grid-template-columns: 50% auto;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+
+
+
+.main-cont > .head .search-box {
+  position: relative;
+  width: 80%;
+  /* margin: auto; */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Input */
+.main-cont > .head .search-box input {
+  padding: 16px 20px 16px 40px;
+  /* 👈 space for icon on the left */
+  border-radius: 8px;
+  font-size: 16px;
+  border: 1px solid #D0D5DD;
+  outline: none;
+  flex: 1;
+}
+
+/* Icon inside input */
+.main-cont > .head .search-box i {
+  position: absolute;
+  left: 12px;
+  /* 👈 move to left */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+  pointer-events: none;
+  /* 👈 allows clicking inside input */
+}
+
+
+.main-cont > .head .user{
+  width: 256px;
+  display: grid;
+  grid-template-columns: 40px auto;
+  align-items: center;
+  gap: 24px;
+}
+
+
+.main-cont > .head .user .notification {
+  position: relative;
+  display: inline-block;
+}
+
+.main-cont > .head .user .notification img{
+  width: 40px;
+  height: 40px;
+}
+
+.main-cont > .head .user .notification .dropdown {
+
+     position: absolute;
+    top: 50px;          /* Adjust based on your header height */
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    
+    z-index: 999;       /* 👈 CRITICAL: Forces the box to stack on top of everything else */
+    
+    width: 320px;       /* Give it a defined width so it has a shape */
+    display: block;     /* Ensure it's not set to display: none */
+
+  /* position: absolute;
+  top: 100%;
+  right: -20px;
+  border-radius: 20px;
+  opacity: 0;
+  display: none;
+  transform: translateY(10px);
+  z-index: 1000;
+  min-width: 316px; */
+
+
+
+  background: linear-gradient(112.91deg, rgba(255, 255, 255, 0.51) 3.51%, rgba(255, 255, 255, 0) 111.71%);
+  border: 1px solid;
+
+  border-image-source: linear-gradient(110.65deg, #FFFFFF 1.16%, rgba(255, 255, 255, 0.2) 100%);
+  backdrop-filter: blur(16px);
+
+  box-shadow: 8px 10px 16px 0px #0000000D;
+
+  padding: 24px 12px;
+
+
+
+  
+
+}
+
+.main-cont > .head .user .notification .dropdown .head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.main-cont > .head .user .notification .dropdown .head h3 {
+  color: #101828;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.main-cont > .head .user .notification .dropdown .head h3 span {
+  padding: 4px;
+  background-color: #9C0E11;
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 12px;
+
+}
+
+.main-cont > .head .user .notification .dropdown .head img {
+  width: 20px;
+  height: 20px;
+}
+
+.main-cont > .head .user .notification .dropdown .messages {
+  display: grid;
+  gap: 12px;
+}
+
+.main-cont > .head .user .notification .dropdown .messages .message {
+  background: linear-gradient(112.91deg, rgba(255, 255, 255, 0.7) 3.51%, rgba(255, 255, 255, 0.5) 111.71%);
+  border: 1px solid;
+
+  border-image-source: linear-gradient(110.65deg, #FFFFFF 1.16%, rgba(255, 255, 255, 0.2) 100%);
+
+  backdrop-filter: blur(50px);
+
+  box-shadow: 8px 10px 16px 0px #0000000D;
+
+  border-radius: 12px;
+  display: flex;
+  column-gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+
+
+}
+
+.main-cont > .head .user .notification .dropdown .messages .message > img {
+  width: 48px;
+  height: 54px;
+}
+
+.main-cont > .head .user .notification .dropdown .messages .message .content h3 {
+  color: #344054;
+  font-weight: 500;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.main-cont > .head .user .notification .dropdown .messages .message .content h3 span {
+    color: #667085;
+    font-weight: 400;
+    font-size: 10px;
+
+
+
+
+
+
+
+
+    
+
+}
+
+.main-cont > .head .user .notification .dropdown .messages .message .content p {
+  color: #667085;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+
+.main-cont > .head .user .notification .dropdown.active {
+  opacity: 1;
+  display: block;
+  transform: translateY(0);
+}
+
+
+
+
+
+/* #main-cont > .head .user .notification:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+} */
+
+.main-cont > .head .user .profile {
+  box-shadow: 0px 2px 2px 0px #00000014;
+  padding: 8px 8px 8px 16px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.main-cont > .head .user .profile p {
+  color: #0D3737;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0%;
+
+}
+
+.main-cont > .head .user .profile .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #136F63;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* Main content */
 .main-cont {
-    margin-left: 220px;
+    /* margin-left: 220px; */
     padding: 24px;
     flex: 1;
     background: #f5f5f5;
     min-height: 100vh;
+    overflow-y: auto;
 }
 
 .dash-head {
@@ -312,4 +696,619 @@ a {
     color: #888;
     margin-top: 40px;
     font-size: 15px;
+}
+
+/* Stats */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.stat-card h3 {
+    font-size: 28px;
+    color: teal;
+    margin-bottom: 4px;
+}
+
+.stat-card p {
+    color: #888;
+    font-size: 13px;
+}
+
+/* Bookings list */
+.bookings-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.booking-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.booking-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.booking-info h4 {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.booking-info p {
+    font-size: 12px;
+    color: #888;
+}
+
+.booking-status {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.service-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.service-desc {
+    font-size: 12px;
+    color: #888;
+}
+
+.booking-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #555;
+}
+
+.booking-btns {
+    display: flex;
+    gap: 8px;
+}
+
+.booking-btns button {
+    flex: 1;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.cancel-btn {
+    background: #ffe0e0;
+    color: #cc0000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Booking Stlyle */
+
+.steps-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: gray;
+    flex: 1;
+    padding: 10px;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+}
+
+.step-item.active {
+    color: teal;
+    border-bottom: 2px solid teal;
+}
+
+.step-item.done {
+    color: green;
+}
+
+.step-num {
+    background: #e0e0e0;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.step-item.active .step-num {
+    background: teal;
+    color: white;
+}
+
+.step-item.done .step-num {
+    background: green;
+    color: white;
+}
+
+.step-content {
+    margin-bottom: 24px;
+}
+
+.step-content h2 {
+    margin-bottom: 8px;
+}
+
+.step-content p {
+    color: #888;
+    margin-bottom: 24px;
+}
+
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.service-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px dashed #007bff;
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.service-card.selected {
+    border: 2px solid teal;
+    background: #f0fafa;
+}
+
+.step-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 24px;
+}
+
+.date-time-cont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 24px;
+    border: 1px solid #d0e8f0;
+    border-radius: 12px;
+}
+
+
+
+
+
+
+
+
+
+/* ----------------BOOKING BUTTONS------------------------ */
+
+.add-booking-btn {
+    background: teal;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.add-booking-btn:hover {
+    background: #005f5f;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------------HOME PAGE--------------- */
+
+/* HOME PAGE */
+.home {
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+
+.first-section {
+    height: 80vh;
+    background-image: url('../public/images/firstSection.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+
+.first-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;                  /* Stretches the layer to fill 100% of the section */
+    
+    /* 🌟 YOUR REQUESTED ATTRIBUTES 🌟 */
+    background: #082C284D;     /* The dark teal tint with opacity */
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px); /* Safari support */
+    
+    z-index: 1;                /* Places the tint/blur layer above the background image */
+}
+
+/* 3. Keep your text content crisp and sitting on top of the blur */
+.first-section > * {
+    position: relative;
+    z-index: 2;                /* 👈 CRITICAL: Lifts headings, buttons, and text above the blur layer */
+    color: #ffffff;            /* Makes all text white so it pops on the dark teal background */
+}
+
+/* Home Navbar */
+.home-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.home-nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.home-nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+}
+
+.home-nav-links a:hover {
+    color: teal;
+}
+
+.home-nav-btns {
+    display: flex;
+    gap: 12px;
+}
+
+/* Buttons */
+.outline-btn {
+    padding: 10px 20px;
+    border: 2px solid teal;
+    border-radius: 8px;
+    background: transparent;
+    color: teal;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.fill-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: teal;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.outline-btn:hover {
+    background: teal;
+    color: white;
+}
+
+.fill-btn:hover {
+    background: #005f5f;
+}
+
+.outline-btn.white {
+    border-color: white;
+    color: white;
+}
+
+.outline-btn.white:hover {
+    background: white;
+    color: teal;
+}
+
+.fill-btn.white {
+    background: white;
+    color: teal;
+}
+
+.fill-btn.white:hover {
+    background: #e0f0f0;
+}
+
+/* Hero */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    padding: 80px 60px;
+    background: linear-gradient(135deg, #e8f4f4, #ffffff);
+    min-height: 80vh;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.hero-text h1 span {
+    color: teal;
+}
+
+.hero-text p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 16px;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    width: 280px;
+}
+
+.hero-card-avatar {
+    width: 60px;
+    height: 60px;
+    background: teal;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.hero-card h4 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.hero-card p {
+    font-size: 13px;
+    color: #888;
+}
+
+/* Sections */
+.home-section {
+    padding: 80px 60px;
+    text-align: center;
+}
+
+.home-section h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.home-section p {
+    color: #888;
+    margin-bottom: 48px;
+    font-size: 15px;
+}
+
+.home-section.grey {
+    background: #f5f5f5;
+}
+
+.home-section.cta {
+    background: teal;
+    color: white;
+}
+
+.home-section.cta h2 {
+    color: white;
+}
+
+.home-section.cta p {
+    color: #e0f0f0;
+}
+
+/* Services grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: left;
+}
+
+.service-item {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.service-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.service-item h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.service-item p {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 0;
+}
+
+/* How it works */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.step-item-home {
+    text-align: center;
+    padding: 24px;
+}
+
+.step-circle {
+    width: 56px;
+    height: 56px;
+    background: teal;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto 16px;
+}
+
+.step-item-home h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.step-item-home p {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 0;
+}
+
+/* Footer */
+.home-footer {
+    background: #333;
+    color: white;
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-footer p {
+    color: #aaa;
+    font-size: 13px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: teal;
 }
