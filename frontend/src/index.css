@@ -1,10 +1,9 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter;
 }
-
 
 
 .form-cont {
@@ -37,7 +36,7 @@
 .form-cont.register-page::before {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
-        url('../public/images/userRegisterImg.png'); /* 👈 Put your new registration image path here */
+        url('../images/userRegisterImg.png'); /* 👈 Put your new registration image path here */
         
     /* Keeps all of your setup adjustments intact (auto sizing, containment, etc.) */
     /* background-size: auto; 
@@ -994,12 +993,16 @@ a {
 
 .first-section {
     height: 80vh;
-    background-image: url('../public/images/firstSection.jpg');
+    background-image: url('../images/firstSection.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
+
+    padding-inline: 120px;
+    /* padding-bottom: 350px; */
 }
+
 
 
 .first-section::before {
@@ -1023,14 +1026,24 @@ a {
 }
 
 /* Home Navbar */
+
+
 .home-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 60px;
+    padding-top: 62px;
+    padding-inline: 156px;
     position: sticky;
     top: 0;
     z-index: 100;
+    margin-bottom: 140px;
+}
+
+.let-logo {
+    font-size: 40px;
+    font-weight: 700;
+    color: #F7F8F9;
 }
 
 .home-nav-links {
@@ -1040,8 +1053,9 @@ a {
 
 .home-nav-links a {
     text-decoration: none;
-    color: #555;
-    font-size: 14px;
+    color: #F7F8F9;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .home-nav-links a:hover {
@@ -1103,6 +1117,404 @@ a {
 .fill-btn.white:hover {
     background: #e0f0f0;
 }
+
+
+.first-section-content > h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #F7F8F9;
+    width: 712px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.first-section-content > h1 span {
+    color: #F59E0B;
+    
+}
+
+.first-section-content .avg-rating {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-left: 11%;
+    margin-bottom: 32px;
+    width: 246px;
+    align-items: center;
+    padding: 8px 20px;
+    background: #F7F8F966;
+    border: 1px solid;
+    border-radius: 8px;
+    border-image-source: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(42, 182, 182, 0.8) 100%);
+    border-image-slice: 1;
+    backdrop-filter: blur(40px);
+    position: relative;
+    top: -20px;  
+    font-family: Montserrat;
+    color: white;
+}
+
+.first-section-content > p {
+    font-size: 28px;
+    font-weight: 500;
+    color: #F7F8F9;
+    width: 850px;
+    margin-inline: auto;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.first-section-content .avg-job {
+    margin: 12px 11% 32px 0;
+    width: 300px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-self: right;
+    justify-content: center;
+    padding: 8px 20px;
+    background: #F7F8F966;
+    border: 1px solid;
+    border-radius: 8px;
+    border-image-source: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(42, 182, 182, 0.8) 100%);
+    border-image-slice: 1;
+    backdrop-filter: blur(40px);
+    position: relative;
+    font-family: Montserrat;
+    color: white;
+}
+
+
+
+.search-box {
+  position: relative;
+  width: 560px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+}
+
+/* Input */
+.search-box input {
+  padding: 12px 15px 12px 40px;
+  /* 👈 space for icon on the left */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  flex: 1;
+}
+
+/* Icon inside input */
+.search-box i {
+  position: absolute;
+  left: 12px;
+  /* 👈 move to left */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+  pointer-events: none;
+  /* 👈 allows clicking inside input */
+}
+
+/* Button */
+.search-box button {
+  padding: 12px 20px;
+  background: #136F63;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+    cursor: pointer;
+}
+
+
+
+/* ----------------------SECOND SECTION---------------------- */
+
+.second {
+  display: flex;
+  
+  column-gap: 20px;
+  margin-inline: 12%;
+  margin-bottom: 76px;
+  align-items: stretch;
+
+  margin-top: -72px;        
+  position: relative;
+  z-index: 10; 
+
+}
+
+.second .card {
+  /* border: 1px solid transparent;
+  border-radius: 8px;
+  border-image-source: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(25, 109, 109, 1) 100%);
+  border-image-slice: 1;
+  backdrop-filter: blur(40px);
+  position: relative;
+  text-align: center;
+  padding-block: 12px;
+  position: relative;
+  top: -50%; */
+
+  flex: 1;                   /* Makes all 4 cards share space equally */
+  display: flex;
+  flex-direction: column;    /* Stacks elements vertically */
+  align-items: center;       /* Horizontal alignment */
+  text-align: center;
+  padding: 32px 24px;
+
+  /* 🌟 GLASSMORPHISM CONFIGURATION 🌟 */
+  background: rgba(255, 255, 255, 0.05); /* Soft, highly clear white glass overlay */
+  backdrop-filter: blur(20px);            /* Smooths out the background image underneath */
+  -webkit-backdrop-filter: blur(20px);   /* Safari fallback support */
+
+  /* 🌟 COMPATIBLE ROUNDED GRADIENT BORDER 🌟 */
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), 
+    linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(25, 109, 109, 1) 100__);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+ 
+}
+
+.second .card img {
+  margin-bottom: 12px;
+  width: 48px;
+  height: 48px;
+}
+
+.second .card h3 {
+  margin-bottom: 8px;
+  color: #0D3737;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 20px;
+
+}
+
+.second .card p {
+  color: #53545C;
+  font-weight: 500;
+  font-size: 16px;
+
+}
+
+
+/* --------------------THIRD SECTION--------------------------- */
+
+
+.third {
+  margin-inline: 11%;
+
+  margin-bottom: 100px;
+}
+
+.third h1 {
+  color: #0D3737;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.third .card-cont {
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  justify-content: space-between;
+}
+
+.third .card-cont .card {
+  border: 1px solid #DDEFED;
+  box-shadow: 0px 2px 2px 0px #00000014;
+  border-radius: 8px;
+  background-color: white;
+  text-align: center;
+  padding: 12px;
+}
+
+.third .card-cont .card img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 20px;
+  margin-inline: auto;
+}
+
+.third .card-cont .card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: Montserrat;
+  margin-bottom: 8px;
+}
+
+.third .card-cont .card p {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 26px;
+}
+
+/* ---------------------------FOURTH SECTION-------------------------------- */
+
+
+.fourth {
+  /* text-align: center; */
+  margin-inline: 11%;
+  margin-bottom: 66px;
+}
+
+.fourth>h1 {
+  text-align: center;
+  color: #0D3737;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 32px
+}
+
+.fourth>p {
+  color: #000000B2;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.fourth .client {
+  padding: 24px;
+  box-shadow: 0px 1px 4px 0px #00000029;
+  display: grid;
+  grid-template-columns: 40% 56%;
+  justify-content: space-between;
+  margin-bottom: 42px;
+}
+
+.fourth .client button {
+  margin-top: 32px;
+  background-color: #136F63;
+  border-radius: 8px;
+  padding: 10px 28px;
+  border: none;
+}
+
+.fourth .client button a {
+  color: #F7F8F9;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+
+.fourth .handyman {
+  padding: 24px;
+  box-shadow: 0px 1px 4px 0px #00000029;
+  display: grid;
+  grid-template-columns: 56% 40%;
+  justify-content: space-between;
+}
+
+.fourth .handyman button {
+  margin-top: 32px;
+  border-radius: 8px;
+  padding: 10px 56px;
+  border: 1px solid #136F63;
+  background-color: white;
+}
+
+.fourth .handyman button a {
+  color: #136F63;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.fourth>div .img img {
+  width: 100%;
+  height: 512px;
+  
+}
+
+.fourth>div .cont {
+  padding-right: 8px;
+}
+
+
+.fourth>div .cont h2 {
+  color: #0D3737;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.fourth>div .cont p {
+  color: #000000B2;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 20px;
+
+
+}
+
+.fourth>div .cont .card-cont {
+  display: grid;
+  grid-template-columns: 47% 47%;
+  column-gap: 6%;
+  row-gap: 16px;
+}
+
+.fourth>div .cont .card-cont .card {
+  border: 1px solid #DDEFED;
+  box-shadow: 0px 2px 2px 0px #00000014;
+  border-radius: 8px;
+  background-color: white;
+  text-align: center;
+  padding: 12px;
+}
+
+.fourth>div .cont .card-cont .card img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 20px;
+  margin-inline: auto;
+}
+
+.fourth>div .cont .card-cont .card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: Montserrat;
+  margin-bottom: 8px;
+}
+
+.fourth>div .cont .card-cont .card p {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 26px;
+
+}
+
+
+
+
 
 /* Hero */
 .hero {

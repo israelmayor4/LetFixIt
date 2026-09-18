@@ -1,7 +1,75 @@
 import { useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function Home() {
     const navigate = useNavigate();
+
+    const statsData = [
+        { id: 1, img: "../images/jobComplete.svg", title: "1000+", desc: "Jobs Completed" },
+        { id: 2, img: "../images/avgRating.svg", title: "4.8", desc: "Average Rating" },
+        { id: 3, img: "../images/verPro.svg", title: "100+", desc: "Verified Professionals" },
+        { id: 4, img: "../images/cliSat.svg", title: "87%", desc: "Client Satisfaction" },
+    ];
+
+
+    //   POPULR CATEGORIES
+
+    const categoriesData = [
+        {
+            id: 1,
+            title: "Electrical",
+            desc: "Wiring, tech gadget repairs, smart device installation.",
+            img: "../images/popular.svg"
+        },
+        {
+            id: 2,
+            title: "Plumbing",
+            desc: "Pipe repairs, installations, drainage leaks & repairs",
+            img: "../images/popular.svg" // Unified to use your clean public asset path
+        },
+        {
+            id: 3,
+            title: "HVAC Services", // Fixed the typo from HAVC to HVAC
+            desc: "AC installation, maintenance, repair, cooling repair.",
+            img: "../images/popular.svg"
+        },
+        {
+            id: 4,
+            title: "Carpentry",
+            desc: "Furniture, doors, windows, roofing.",
+            img: "../images/popular.svg"
+        }
+    ];
+
+
+    //   HOW WE WORK
+
+    const stepsData = [
+        {
+            id: 1,
+            title: "Tell us the job",
+            desc: "What technical problem do you want solved?",
+            img: "../images/popular.svg"
+        },
+        {
+            id: 2,
+            title: "Pick a pro",
+            desc: "Select from a catalogue of professional service men.",
+            img: "../images/popular.svg"
+        },
+        {
+            id: 3,
+            title: "Book and relax",
+            desc: "Book a fix and relax, everything will be done to perfection",
+            img: "../images/popular.svg"
+        },
+        {
+            id: 4,
+            title: "Spread the word",
+            desc: "Book a fix and relax, everything will be done to perfection", // Optional: Update description text later if needed
+            img: "../images/popular.svg"
+        }
+    ];
 
     return (
         <div className="home">
@@ -9,7 +77,7 @@ function Home() {
             <div className="first-section">
                 {/* NAVBAR */}
                 <div className="home-nav">
-                    <h1 className="logo">LetFixIt</h1>
+                    <h1 className="let-logo">LetFixIt</h1>
                     <div className="home-nav-links">
                         <a href="#about">About</a>
                         <a href="#services">Services</a>
@@ -37,21 +105,21 @@ function Home() {
                     <h1>Book Trusted <span>Handymen</span> in Minutes.</h1>
 
                     <div className="avg-rating">
-                            <h3>⭐ 4.8</h3>
-                            <p>Average rating</p>
+                        <h3>⭐ 4.8</h3>
+                        <p>Average rating</p>
                     </div>
 
                     <p>From plumbing to electricals, find vetted professionals near you.</p>
 
                     <div className="avg-job">
-          
+
                         <h3>1000+</h3>
                         <p>Jobs completed</p>
                     </div>
 
                     <div className="search-box">
-
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" placeholder="What services do you need" />
+                        <i className="fa-solid fa-magnifying-glass"></i>
                         <button>Find a Handyman</button>
                     </div>
 
@@ -59,6 +127,82 @@ function Home() {
 
 
             </div>
+
+            {/* SECOND SECTION */}
+
+            <div className="second">
+                {statsData.map((stat) => (
+                    <div className="card" key={stat.id}>
+                        {/* Grabbing static assets safely directly from your public/images/ folder */}
+                        <img src={`/images/${stat.img}`} alt={`${stat.desc} icon`} />
+                        <h3>{stat.title}</h3>
+                        <p>{stat.desc}</p>
+                    </div>
+                ))}
+            </div>
+
+
+            {/* THIRD SECTION */}
+
+            <div className="third">
+                <h1>Popular Categories</h1>
+
+                <div className="card-cont">
+                    {categoriesData.map((category) => (
+                        <div className="card" key={category.id}>
+                            {/* Grabs the icons dynamically from your public/images directory */}
+                            <img src={`/images/${category.img}`} alt={`${category.title} category icon`} />
+                            <h3>{category.title}</h3>
+                            <p>{category.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+
+
+            {/* FOURTH SECTION */}
+
+
+            <div className="fourth">
+                <h1>How We Work</h1>
+                <p>As a Client you can work with us using these steps:</p>
+
+                <div className="client">
+
+                    {/* Left column featuring your showcase graphic layout */}
+                    <div className="left img">
+                        <img src="/images/frame.png" alt="Client workflow showcase" />
+                    </div>
+
+                    {/* Right column containing informational text, card grid loops, and action button */}
+                    <div className="right cont">
+                        <h2>Client Journey</h2>
+                        <p>As a Client you can work with us using these steps:</p>
+
+                        <div className="card-cont">
+                            {stepsData.map((step) => (
+                                <div className="card" key={step.id}>
+                                    {/* Dynamically sources all step graphics right out of your public folder */}
+                                    <img src={`/images/${step.img}`} alt={`${step.title} icon`} />
+                                    <h3>{step.title}</h3>
+                                    <p>{step.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* 🌟 Cleaned up button structure using a React Router navigation path link */}
+                        
+                         <button type="button" onClick={() => navigate("/register")}>Book an appointment</button>
+                        
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
 
             {/* HERO SECTION */}
             <div className="hero">
