@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 function Home() {
@@ -68,6 +68,113 @@ function Home() {
             title: "Spread the word",
             desc: "Book a fix and relax, everything will be done to perfection", // Optional: Update description text later if needed
             img: "../images/popular.svg"
+        }
+    ];
+
+
+    const journeyData = [
+        {
+            id: 1,
+            title: "Register your service",
+            desc: "Register with us and let the world see what you are good at.",
+            img: "../images/popular.svg"
+        },
+        {
+            id: 2,
+            title: "Become a pro",
+            desc: "Becoming a pro makes you one of our service providers.",
+            img: "../images/popular.svg"
+        },
+        {
+            id: 3,
+            title: "Get job offers",
+            desc: "We will help you get the best jobs and boost your popularity.",
+            img: "../images/popular.svg"
+        },
+        {
+            id: 4,
+            title: "Manage your time", // Fixed "you" to "your"
+            desc: "We will help you with scheduling & availability.",
+            img: "../images/popular.svg"
+        }
+    ];
+
+
+    const handymenData = [
+        {
+            id: 1,
+            name: "Ade Brown",
+            profession: "Professional Electrician",
+            avatar: "Avatar.svg",
+            rating: "4.5",
+            jobsCount: "900 jobs",
+            skills: ["AC Fix", "Rewiring", "Car Fix", "1+ more"],
+            location: "Shomolu, Lokoja",
+            price: "47,000"
+        },
+        {
+            id: 2,
+            name: "Ade Brown", // Replace with different profile names as needed
+            profession: "Professional Electrician",
+            avatar: "Avatar.svg",
+            rating: "4.5",
+            jobsCount: "900 jobs",
+            skills: ["AC Fix", "Rewiring", "Car Fix", "1+ more"],
+            location: "Shomolu, Lokoja",
+            price: "47,000"
+        },
+        {
+            id: 3,
+            name: "Ade Brown",
+            profession: "Professional Electrician",
+            avatar: "Avatar.svg",
+            rating: "4.5",
+            jobsCount: "900 jobs",
+            skills: ["AC Fix", "Rewiring", "Car Fix", "1+ more"],
+            location: "Shomolu, Lokoja",
+            price: "47,000"
+        }
+    ];
+
+    const dealsData = [
+        {
+            id: 1,
+            serviceName: "AC Installation",
+            price: "47,000",
+            img: "yellowNaira.svg"
+        },
+        {
+            id: 2,
+            serviceName: "AC Installation",
+            price: "47,000",
+            img: "yellowNaira.svg"
+        }
+    ];
+
+    const reviewsData = [
+        {
+            id: 1,
+            name: "Ade Brown",
+            time: "1 month ago",
+            avatar: "Avatar.svg",
+            rating: 4, // Represents 4 stars
+            text: "It was a great experience using this platform. I mean all I had to do was check out the service man profile and book a fix."
+        },
+        {
+            id: 2,
+            name: "Ade Brown",
+            time: "1 month ago",
+            avatar: "Avatar.svg",
+            rating: 2,
+            text: "You want conveniency? This is the most convenient way of getting your problem and job done. All you literarily have to do is book."
+        },
+        {
+            id: 3,
+            name: "Ade Brown",
+            time: "1 month ago",
+            avatar: "Avatar.svg",
+            rating: 4,
+            text: "Been experiencing issues with my TV and Service Router, with just a single click, I had it repaired after trying to get someone to help for over 2 months."
         }
     ];
 
@@ -192,124 +299,286 @@ function Home() {
                         </div>
 
                         {/* 🌟 Cleaned up button structure using a React Router navigation path link */}
-                        
-                         <button type="button" onClick={() => navigate("/register")}>Book an appointment</button>
-                        
+
+                        <button type="button" onClick={() => navigate("/register")}>Book an appointment</button>
+
 
                     </div>
 
                 </div>
-            </div>
 
 
+                <div className="handyman">
+                    {/* Left column containing informational text, card grid loops, and action button */}
+                    <div className="left cont">
+                        <h2>Handyman Journey</h2>
+                        <p>As a service man you can work with us using these steps:</p>
 
-
-            {/* HERO SECTION */}
-            <div className="hero">
-                <div className="hero-text">
-                    <h1>Find Trusted Handymen <span>Near You</span></h1>
-                    <p>Book verified professionals for all your home repair and maintenance needs. Fast, reliable and affordable.</p>
-                    <div className="hero-btns">
-                        <button
-                            className="fill-btn"
-                            onClick={() => navigate("/register")}
-                        >
-                            Get Started as User
-                        </button>
-                        <button
-                            className="outline-btn"
-                            onClick={() => navigate("/handyman/register")}
-                        >
-                            Join as Handyman
-                        </button>
-                    </div>
-                </div>
-                <div className="hero-image">
-                    <div className="hero-card">
-                        <div className="hero-card-avatar">A</div>
-                        <div>
-                            <h4>Ade Brown</h4>
-                            <p>Professional Electrician</p>
-                            <p>⭐ 4.5 (900 jobs)</p>
+                        <div className="card-cont">
+                            {journeyData.map((step) => (
+                                <div className="card" key={step.id}>
+                                    {/* Dynamically sources all step graphics right out of your public folder */}
+                                    <img src={`/images/${step.img}`} alt={`${step.title} icon`} />
+                                    <h3>{step.title}</h3>
+                                    <p>{step.desc}</p>
+                                </div>
+                            ))}
                         </div>
+
+                        {/* Cleaned up button structure using a React Router navigation path link */}
+                        {/* <Link to="/register-pro" className="cta-link-btn"> */}
+                        <button type="button"
+                            onClick={() => navigate("/handyman/login")}
+                        >Become a Pro</button>
+                        {/* </Link> */}
+                    </div>
+
+                    {/* Right column featuring your handyman showcase graphic layout */}
+                    <div className="right img">
+                        <img src="../images/userSignInImg.png" alt="Handyman journey showcase" />
                     </div>
                 </div>
+
+
+
             </div>
 
-            {/* SERVICES SECTION */}
-            <div className="home-section" id="services">
-                <h2>Our Services</h2>
-                <p>We cover a wide range of home repair and maintenance services</p>
 
-                <div className="services-grid">
-                    {[
-                        { icon: "⚡", title: "Electrical", desc: "Wiring, repairs, solar installation" },
-                        { icon: "🔧", title: "Plumbing", desc: "Pipe repairs, installations, leaks" },
-                        { icon: "🔨", title: "Carpentry", desc: "Furniture, doors, windows, roofing" },
-                        { icon: "📺", title: "Appliances", desc: "Home appliance and gadgets repair" },
-                        { icon: "🧹", title: "Cleaning", desc: "Deep cleaning, fumigation, maintenance" },
-                        { icon: "🎨", title: "Art & Painting", desc: "Interior and exterior painting" },
-                    ].map((service) => (
-                        <div key={service.title} className="service-item">
-                            <div className="service-icon">{service.icon}</div>
-                            <h3>{service.title}</h3>
-                            <p>{service.desc}</p>
+
+            {/* FIFTH SECTION */}
+
+
+
+            <div className="fifth">
+                <h1>Featured Handymen</h1>
+
+                <div className="card-cont">
+                    {handymenData.map((handyman) => (
+                        <div className="card" key={handyman.id}>
+
+                            {/* Top Area: Profile Header Info */}
+                            <div className="top">
+                                <img src={`/images/${handyman.avatar}`} alt={`${handyman.name}'s Avatar`} />
+                                <div className="img-det">
+                                    <h2>{handyman.name}</h2>
+                                    <p>{handyman.profession}</p>
+                                    <div className="rating">
+                                        <img src="../images/star.svg" alt="Star Rating Icon" />
+                                        <h3>{handyman.rating}</h3>
+                                        <p>({handyman.jobsCount})</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Middle Area: Core Skills Tags */}
+                            <div className="jobs">
+                                {handyman.skills.map((skill, index) => (
+                                    <button type="button" key={index}>{skill}</button>
+                                ))}
+                            </div>
+
+                            <hr /> {/* 👈 CRITICAL React Fix: Added closing slash */}
+
+                            {/* Details Area: Location and Rates */}
+                            <div className="location">
+                                <img src="../images/location.svg" alt="Location Marker Icon" />
+                                <p>{handyman.location}</p>
+                            </div>
+                            <div className="price">
+                                <img src="../images/naira.svg" alt="Price Tag Icon" />
+                                <p><strong>{handyman.price}</strong>/hour</p>
+                            </div>
+
+                            {/* Bottom Area: Contact and Profile Buttons */}
+                            <div className="btn">
+                                {/* Wrapped buttons in valid React Router Links instead of nested <a> tags */}
+                                <Link to={`/chat/${handyman.id}`} className="message-link link">
+                                    <button type="button" className="message">
+                                        <img src="../images/message.svg" alt="Message Icon" />
+                                        Message
+                                    </button>
+                                </Link>
+
+                                <Link to={`/profile/${handyman.id}`} className="profile-link link">
+                                    <button type="button" className="profile">
+                                        <img src="../images/user.svg" alt="Profile Icon" />
+                                        View Profile
+                                    </button>
+                                </Link>
+                            </div>
+
                         </div>
                     ))}
                 </div>
             </div>
+
+
+
+
+            {/* SIXTH SECTION */}
+
+
+            <div className="sixth">
+                <h1>Top Deals</h1>
+                <p>Summer is here, Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+
+                <div className="card-cont">
+                    {dealsData.map((deal) => (
+                        <div className="card" key={deal.id}>
+
+                            {/* 🌟 Inline style strings converted to React Objects */}
+                            <h1 style={{ fontSize: "12px", fontWeight: "600", marginBottom: "6px" }}>
+                                {deal.serviceName}
+                            </h1>
+
+                            <p style={{ fontSize: "12px", fontWeight: "400", marginBottom: "12px" }}>
+                                <i>Get any services for</i>
+                            </p>
+
+                            <div className="price" style={{ marginBottom: "12px" }}>
+                                {/* Dynamically sourcing your image badge out of the public assets directory */}
+                                <img src={`../images/${deal.img}`} alt="Naira currency indicator icon" />
+                                <p style={{ color: "#F59E0B", fontSize: "12px" }}>
+                                    <strong>{deal.price}</strong>/hour
+                                </p>
+                            </div>
+
+                            <p style={{ fontSize: "12px", fontWeight: "400", marginBottom: "24px" }}>
+                                Call us or schedule a service online
+                            </p>
+
+                            {/* 🌟 Removed invalid button nesting in favor of a clean React Router Link structure */}
+                            <Link to="/booking" className="deal-booking-link">
+                                <button type="button">Book a Service</button>
+                            </Link>
+
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+
+
+            {/* SEVENTH SECTION */}
+
+            <div className="seventh">
+                <h1>What They Say</h1>
+                <p>
+                    Summer is here, Lorem ipsum dolor sit amet, consectetur adipiscing elit Summer is here, Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit
+                </p>
+
+                <div className="card-cont">
+                    {reviewsData.map((review) => (
+                        <div className="card" key={review.id}>
+
+                            {/* Top Area: Reviewer Identity Block */}
+                            <div className="top">
+                                <img src={`/images/${review.avatar}`} alt={`${review.name}'s Avatar`} />
+
+                                <div className="img-det">
+                                    <h2>{review.name}</h2>
+                                    <p>{review.time}</p>
+
+                                    {/* Dynamic Star Generator: Loops matching the rating number */}
+                                    <div className="rating">
+                                        {[...Array(review.rating)].map((_, index) => (
+                                            <img key={index} src="/images/star.svg" alt="Star Rating Indicator" />
+                                        ))}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            {/* Bottom Area: Review Message Content */}
+                            <p>{review.text}</p>
+
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+
 
             {/* HOW IT WORKS */}
-            <div className="home-section grey" id="how-it-works">
-                <h2>How It Works</h2>
-                <p>Book a handyman in 3 simple steps</p>
+            <footer>
+                {/* 🌟 Changed id="eight" to className="eight" */}
+                <div className="eight">
+                    <div className="right">
+                        <h1>Join us and start enjoying our premium services</h1>
+                        <p>Join over 4,000+ Service men, and get started with the best platform to showcase your quality to the world</p>
+                    </div>
 
-                <div className="steps-grid">
-                    {[
-                        { step: "1", title: "Choose a Service", desc: "Browse and select the service you need from our wide range of categories" },
-                        { step: "2", title: "Pick a Handyman", desc: "Select from our list of verified and rated professionals near you" },
-                        { step: "3", title: "Book & Relax", desc: "Schedule a date and time that works for you and we'll handle the rest" },
-                    ].map((item) => (
-                        <div key={item.step} className="step-item-home">
-                            <div className="step-circle">{item.step}</div>
-                            <h3>{item.title}</h3>
-                            <p>{item.desc}</p>
+                    <div className="left">
+                        {/* Kept plain structural tags without router link elements as requested */}
+                        <button type="button">
+                            <a href="#get-started">Get Started</a>
+                        </button>
+                    </div>
+                </div>
+
+                {/* 🌟 Changed id="ninth" to className="ninth" */}
+                <div className="ninth">
+                    <div className="right">
+                        <h1>LetFixIt</h1>
+                        <p>Easy fixing of problems by hiring competent service men</p>
+                    </div>
+
+                    <div className="left">
+                        <div className="product">
+                            <p>Product</p>
+                            <ul>
+                                <li>Features</li>
+                                <li>Pricing</li>
+                            </ul>
                         </div>
-                    ))}
-                </div>
-            </div>
 
-            {/* CTA SECTION */}
-            <div className="home-section cta">
-                <h2>Ready to get started?</h2>
-                <p>Join thousands of users who trust LetFixIt for their home repairs</p>
-                <div className="hero-btns">
-                    <button
-                        className="fill-btn white"
-                        onClick={() => navigate("/register")}
-                    >
-                        Create Account
-                    </button>
-                    <button
-                        className="outline-btn white"
-                        onClick={() => navigate("/handyman/register")}
-                    >
-                        Join as Handyman
-                    </button>
-                </div>
-            </div>
+                        <div className="company">
+                            <p>Company</p>
+                            <ul>
+                                <li>About Us</li>
+                                <li>Contact</li>
+                            </ul>
+                        </div>
 
-            {/* FOOTER */}
-            <div className="home-footer">
-                <h2 className="logo">LetFixIt</h2>
-                <p>© 2026 LetFixIt. All rights reserved.</p>
-                <div className="footer-links">
-                    <a href="/login">User Login</a>
-                    <a href="/register">User Register</a>
-                    <a href="/handyman/login">Handyman Login</a>
-                    <a href="/handyman/register">Handyman Register</a>
+                        <div className="resources">
+                            <p>Resources</p>
+                            <ul>
+                                <li>Blogs</li>
+                                <li>Newsletter</li>
+                                <li>Events</li>
+                                <li>Help Centre</li>
+                                <li>Tutorials</li>
+                                <li>Support</li>
+                            </ul>
+                        </div>
+
+                        <div className="legal">
+                            <p>Legal</p>
+                            <ul>
+                                <li>Terms</li>
+                                <li>Privacy</li>
+                                <li>Cookies</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
+
+                {/* 🌟 Changed id="tenth" to className="tenth" */}
+                <div className="tenth">
+                    <div className="socials">
+                        <a href="https://twitter.com" target="_blank" rel="noreferrer">
+                            <img src="/images/twitter.svg" alt="Twitter Profile" />
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+                            <img src="/images/linkeldn.svg" alt="LinkedIn Profile" />
+                        </a>
+                        <a href="https://facebook.com" target="_blank" rel="noreferrer">
+                            <img src="/images/facebook.svg" alt="Facebook Profile" />
+                        </a>
+                    </div>
+                </div>
+            </footer>
 
         </div>
     );
