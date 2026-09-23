@@ -24,18 +24,22 @@ function Navbar({ activePage, onLogout }) {
                         to={link.path}
                         className={activePage === link.name ? "active" : ""}
                     >
-                        <img src={`/images/${link.logo}`}  alt="" />
+                        <img src={`/images/${link.logo}`} alt="" />
                         {link.name}
                     </Link>
                 ))}
             </div>
 
             <div className="nav-user">
-                <div className="avatar">
-                    {user?.username?.[0]?.toUpperCase()}
+                <div className="support">
+                    <img src="/images/fi_headphones.svg" alt="" />
+                    <p>Contact Support</p>
                 </div>
-                <p>{user?.username?.split(" ")[0]}</p>
-                <button onClick={onLogout}>Logout</button>
+                <div className="logout">
+                    <img src="/images/logout.svg" />
+                    <button onClick={onLogout}>Logout</button>
+                </div>
+
             </div>
         </div>
     );

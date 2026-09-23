@@ -4,6 +4,7 @@ import { useAuth } from "../../context/AuthContext";
 import API from "../../api/axios";
 import Navbar from "../../components/Navbar";
 import HandymanCard from "../../components/HandymanCard";
+import Header from '../../components/Header'
 
 function UserService() {
     const [handymen, setHandymen] = useState([]);
@@ -69,6 +70,9 @@ function UserService() {
             <Navbar activePage="Service" onLogout={handleLogout} />
 
             <div className="main-cont">
+
+                <Header />
+                
                 <div className="dash-head">
                     <h1>Top Handymen</h1>
                     <p>Find the best professionals for your needs</p>

@@ -5,6 +5,7 @@ import { useAuth } from "../../context/AuthContext";
 import API from "../../api/axios";
 import Navbar from "../../components/Navbar";
 import AddBookingBtn from "../../components/AddBookingBtn";
+import Header from '../../components/Header'
 
 function UserBooking() {
     const [view, setView] = useState("myBookings"); // myBookings or bookNow
@@ -116,6 +117,8 @@ function UserBooking() {
             <Navbar activePage="Booking" onLogout={handleLogout} />
 
             <div className="main-cont">
+
+                <Header />
 
                 {/* MY BOOKINGS SECTION */}
                 {view === "myBookings" && (
