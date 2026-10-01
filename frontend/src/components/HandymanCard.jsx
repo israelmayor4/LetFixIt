@@ -7,7 +7,7 @@ function HandymanCard({ data }) {
         <div className="card">
             <div className="card-top">
                 <img
-                    src={data.avatar || "https://via.placeholder.com/50"}
+                    src={data.avatar || "/images/Avatar.svg"}
                     alt={data.username}
                 />
                 <div className="card-info">
@@ -30,15 +30,14 @@ function HandymanCard({ data }) {
                 )}
             </div>
 
-            <hr />
 
             <div className="card-location">
-                <span>📍</span>
+                <img src="/images/location.svg"/>
                 <p>{data.location || "Location not set"}</p>
             </div>
 
             <div className="card-price">
-                <span>💰</span>
+                <img src="/images/naira.svg"/>
                 <p><strong>₦{data.rate?.toLocaleString()}</strong>/hour</p>
             </div>
 

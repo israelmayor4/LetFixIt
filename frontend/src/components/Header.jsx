@@ -17,7 +17,8 @@ function Header() {
         <div className="head">
             <div className="search-box">
                 <input type="search" placeholder="Enter Search Keyword" />
-                <i className="fa-solid fa-magnifying-glass"></i>
+                <img className="image" src="/images/search.svg" alt="Google Icon" />
+                {/* <i className="fa-solid fa-magnifying-glass"></i> */}
             </div>
 
             <div className="user">

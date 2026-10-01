@@ -46,19 +46,8 @@ function UserDashboard() {
             <Navbar activePage="Dashboard" onLogout={handleLogout} />
 
             <div className="main-cont">
-
-
-                
+     
                 <Header />
-
-
-
-
-
-
-
-
-
 
 
                 <div className="dash-head">
